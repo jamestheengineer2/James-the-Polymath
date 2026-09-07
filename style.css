@@ -4,3 +4,12 @@ body {
   padding: 25px;
   font-family: sans-serif;
 }
+.white-space{
+  padding: 0 450px 0 200px;
+  position: absolute;
+}
+.links{
+  position: absolute;
+  top: 50px;
+  right: 120px;
+}
