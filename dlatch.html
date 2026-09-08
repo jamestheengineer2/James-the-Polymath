@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The D Latch</title>
+  <title>SR Latch</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" >
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Article is under construction. Coming out -9/8/2026</h1>
+  <div class="white-space">
+    <p>Remember from our SR Latch how there was that pesky "undefined state" when inputting 1 in both inputs. We can use our D Latch to get around this annoying little fact. How exactly? By simply not allowing S and R to be the same. Take note of the embedded SR Latch to the right, and the two NAND gates and an inverter on the left, merging to create the D Latch.</p>
+  <img src="https://blog.mbedded.ninja/_astro/d-latch-from-nand-gates.wodAbNC5.png" alt="Latches and Flip-Flops | mbedded.ninja" width="480"/>
+  <ul>
+    <li>The right top NAND corresponds with the R Input</li>
+    <li>The right bottom NAND corresponds with the S Input</li>
+  </ul>
+  <p>We can see on the right a basic SR Latch. Towards the left is some new circuitry. We see two new NAND gates and an inverter. The new inventer works as a "mechanical interlock", ensuring that both S and R, now controlled by D, can't be the same. Additionally, since S and R are controlled by D, we only account for D in the truth table. However we also must also consider the enable signal.</p>
+  <b><center><h2>When not Enabled</h2></center></b>
+  <p>When the Enable is set to 0, nothing happens. Why is that exactly? Well, consider that we are using NAND gates with both D and E as inputs. When one input is zero, NAND returns zero. Both of these zeroes enter the SR Latch, guaranteeing no change in the latch (refer to SR Latch).</p>
+  <b><center><h2>When D=0, E=1</h2></center></b>
+  <p>When D is set to 0 while Enabled, we see that Q is set to 0. The simplest way to prove this is by acknowledging that the top NAND gate returns 1 (NAND of E and D), while the bottom gate returns 0 (NAND of E and D'). The top NAND gate enters the R input of the SR Latch while the bottom NAND gate enters the S input. The values here can be abstracted to SR Latch logic, which has a 1 in R and a 0 in S, resetting Q to 0.</p>
+  <b><center><h2>When D=1, E=1</h2></center></b>
+  <p>When both D and E are set to 1, Q is set to 1 while Q' is set to 0. Due to both an inverted D and E signal being sent below, our bottom NAND returns 1. On the other hand, the top NAND has two 1s, and returns 0. The bottom NAND travels to the "S" input while the top NAND trabels to the "R" input. Because of this fact, the Q returns 1 when D is 1.</p>
+  <b><center><h2>D Latch Summary</h2></center></b>
+  <p>An observation to be made about the D Latch is that Q "follows" D when enabled by E. The latch is only "listening" when E is 1, and when D turns 1, Q turns 1, and vise versa. This pattern remains until the E is 0 or disabled. In that case, D would have zero effect and be completely ineffective.</p>
+  <p>What makes the D Latch so useful is that we can officially tie it in with a clock signal. Almost all computers use a clock signal to centralize operations in the CPU. We also fixed the issue of an undefined state in the latch, so we no longer have to worry about our machine breaking on us!</p>
+  <p>Although there are no technical faults within the D Latch, one shortcoming is that the D Latch only uses 2 of the 4 possible configurations. When E = 0, the circuit is locked and cannot take input. Thusly, we can only do 2 tasks with our D Latch. The later adaptation of the D Latch, the JK Flip Flop, is the first latch which uses all four of its configurations for different tasks.</p>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    </center>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
