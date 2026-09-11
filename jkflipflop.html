@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The D Latch</title>
+  <title>JK Flipflops</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" >
   <link href="style.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Article is under construction. Coming out -9/8/2026</h1>
+  <div class="white-space">
+    <h1><center>JK Flipflops</center></h1>
+    <p>The JK Flipflop is an advanced modification of the SR Latch. It takes the idea of the clock signal from the D Latch, while retaining both of its inputs like that of the SR Latch. Although this is a huge development in terms of latches, the truth table becomes more complicated as there are three inputs instead of two. Similar to the D Latch, the computer only "listens" when permitted by the enable signal. And the two inputs J and K use NAND gates to create memory in Q and Q'.</p>
+    <img src="https://electronicsforu.com/wp-contents/uploads/2017/08/JK-Flip-Flop-800x444.png" alt="Flip-Flops in Electronics: Types, Truth Table, Circuit, and Uses" width = "570"/>
+    <p>Analyzing the circuit closely, we notice that the left contains the newly established inputs J, K, and CLK, while the right side is the familiar SR Latch circuit. Following a similar pattern to a D Latch, the JK Flipflop uses two NAND gates which generate inputs for which to plug into the SR Latch. But enough about the theory - lets see the circuit in action.</p>
+    <center><h2><b>When CLK = 0</b></h2></center>
+    <p>I'm sure you guys are already well aware of what a flipflop does when not enabled, but I'm just putting this in here for continuity. When not enabled, the NAND gate is guaranteed to return 1 due to a 0 being in the NAND truth table. Thusly, both an "S" input and "R" input will be 0, causing no change within the circuit. For all circuits with "Enable" or "CLK" (these mean the same here), the circuit will have no change. For the following proofs, assume the circuit is enabled (CLK=1).</p>
+    <center><h2><b>When J = 1, K = 0</b></h2></center>
+    <p>When J is set to 1 while K is set to 0, Q is set to 1. This is because when we NAND J, CLK, and Q' on the top-left NAND gate (assume Q' is 1), the output returns 0. This 0 goes through the SR Latch - specifically the "R" input - and changes nothing as there is no signal. The bottom-left NAND returns 1, as K is 0. This 1 goes through the "S" input of the SR Latch, thusly setting Q to 1.</p>
+    <center><h2><b>When K = 1, J = 0</b></h2></center>
+    <p>When K is set to 1 while J is set to 0, Q is reset to 0. This happens because when we NAND CLK,K, and Q (assume Q is 1) on the bottom-left NAND gate, the output returns 0. This 0 runs through the SR Latch - specifically the "S" input - and changes nothing as there is no signal. The top-left NAND gate returns 1, as J is 0. This 1 runs throught the "R" input of the SR Latch, thusly setting Q to 0</p>
+    <p>P.S: I hope you are noticing a pattern that when an input of an SR Latch is a value, its other input is set to its complement. For example - when S is 1, then R is 0. When a value is inputted within a discussed circuit variable (J, K), the SR embedded circuit will have complemented values for S and R.</p>
+    <h2><center>When K = 1, J = 1</center></h2>
+    <p>When both J and K are set to 1, a new phenomena occurs which we have never discussed before. Toggling. We can think of toggling as a modified state of the SR Latch's undefined state. Instead of booting in an unpredictable state, it is oscillating between Q=1 and Q=0 millions of times a second. This simple fact becomes very important as we move to our final switch, the T Flopflop, which essentially is built from this idea.</p>
+    <b><center><h2>JK Flipflop Summary</h2></center></b>
+    <p>We finally learned about a circuit which tolerates and uses all 4 input states. Additionally, we get our own clock signal integrated into the circuit. All of these factors make the JK Flipflop not just the most complex circuit but also the most useful. Congrats on learning about the JK Flip Flop! We only have one more circuit to cover, which is just a simple and easier modificaiton. Give yourself a pat on the back. You earned it!</p>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a>
+    </center>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
