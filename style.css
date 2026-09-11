@@ -13,3 +13,67 @@ body {
   top: 50px;
   right: 120px;
 }
+.nav_buttons {
+  padding: 25px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  bottom: 70px;
+  border: 2px solid white;
+}
+a:hover {
+  color: #b1b3b5;
+
+}
+.button {
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+}
+.profile_container {
+  width: 45px;          /* Must be equal to height*/
+  border-radius: 50%;    /* Turns the square into a perfect circle */
+  overflow: hidden;      /* Cuts off the sharp corners of the image */
+  border: none; /* Optional: Adds a nice colored border */
+  aspect-ratio: 1/1;
+  position: relative;
+  bottom: 220px;
+  left: 1500px;
+}
+
+.profile_container .profile {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* 2. Style the image inside */
+.profile_container .profile img {
+  width: 100%;           /* Makes the image fill the container */
+  height: 100%;          /* Makes the image fill the container */
+  object-fit: cover;     /* Prevents stretching by cropping to fit */
+  display: block;
+  border: 2px solid gray;
+}
+
+.next_button {
+  display: inline-block;
+  padding: 20px;
+  background-color: red;
+  color: white;
+  text-decoration: none;
+
+}
+#logo_web {
+  position: relative;
+  bottom: 22px;
+}
