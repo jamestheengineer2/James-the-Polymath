@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>T Flipflops</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="white-space">
+    <h1><center>T Flipflops</center></h1>
+    <p>We made it to the last type of latch - the T Flipflop. The T Flipflop is definitely the largest of the circuit, as it embeds both the SR Latch and the JK Flipflop. The T Flipflop is to the JK Flipflop as the D Latch is to the SR Latch. The idea of the T Flipflop is that we remove the seperate JK Inputs by having them duly controlled by the T input. This either makes it so J and K are selected in parallel or the circuit is switched off. Essentially, the T Flipflop can only toggle a selection. Additionally, it also has a E (CLK) input for "enabling" the circuit</p>
+    <img src="https://circuitdigest.com/sites/default/files/inlineimages/u5/Circuit-Diagram-for-T-Flip-Flop.png" width="570">
+    <center><h2><b>When E = 0</b></h2></center>
+    <p>When E is 0, the circuit is not listening, and is disabled. However interestingly, instead of enable following T like that of the D Latch, it permits the toggling action at request of the transistor or rapid electronic switch. Thusly, assuming T is always high, we can actually control the toggle by selecting and deselecting the enable signal.</p>
+    <center><h2><b>When E = 1, T = 0</b></h2></center>
+    <p>Remember that from what I said earlier, the T Flipflop has an embedded JK Flipflop, which itself has an embedded SR Latch. When T is set to 0, the embedded JK Flipflop has inputs set to 0, which will set the further embedded SR Latch inputs to 0, thusly causing no change in the circuit. Effectively, when al the T input is 0, there is no change to the circuit.</p>
+    <center><h2><b>When E = 1, T = 1</b></h2></center>
+    <p>When both E and T are set to 1, the switch toggles between Q=1 and Q=0 millions of times a second. This is because we are taking advantage of the JK Flipflop truth table. When we input two 1s, the output is a rapid oscillation of Q. The T input is connected to both the S and R inputs, meaning that when T is 1, S and R are 1. I compared this to the D Latch since the D Latch uses a similar mechanism - tying D to S and R inputs - for ensuring that the SR Latch does not have undefined values. </p>  
+    <center><h2><b>Summary</b></h2></center>
+    <p>The only practical difference between the two is that the T Flipflop can exclusively toggle, while the JK Flipflop is more versatile. Although the T Flipflop is the largest circuit embedding both the JK Flipflop and the SR Latch. It is definitely not the most complicated. It only has two capabilities on the truth table, being the memory state (no change) and the toggling state. This is comparatively pathetic to other circuits like the JK Flipflop which can do 4 different actions.</p>
+    <p>But congratulations, you made it through probably the hardest area of boolean algebra, which is understanding the latches and flipflops. Now you understand memory, data storage theory, circuit states, and more. You have definitely made it a long way!</p>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a>
+    </center>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
