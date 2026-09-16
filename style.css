@@ -4,82 +4,55 @@ body {
   padding: 25px;
   font-family: sans-serif;
 }
-.white-space{
-  padding: 0 450px 0 200px;
-  position: absolute;
+.login_query {
+  width: 500px;
+  height: 50px;
+  border-radius: 30px;
 }
-.links{
-  position: absolute;
-  top: 50px;
-  right: 120px;
+.side-block {
+  display: inline-block;
+  width: 700px;
+  height: 650px;
+  justify-content: left;
+  background-color: grey;
+  position: relative;
+  top: -400px;
+  right: 600px;
+  border-radius: 100px;
+  z-index: 1;
 }
-.nav_buttons {
-  padding: 25px;
+.side-block.animate {
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+    background-color: grey;
+  }
+  to {
+    transform: translateX(-300px);
+    background-color: grey;
+  }
+}
+
+.slide {
+  position: relative;
+  left: 180px;
+  top: 230px;
+}
+#goaway {
+  padding: 50px;
+  position: relative;
+  left: 500px;
+}
+#submit_button {
+  display: inline-block;
+  padding: 10px 50px;
+  border-radius: 10px;
+  border: 2px solid white;
   background-color: black;
   color: white;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
-  position: relative;
-  bottom: 70px;
-  border: 2px solid white;
-}
-a:hover {
-  color: #b1b3b5;
-
-}
-.button {
-  border: none;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-}
-.profile_container {
-  width: 45px;          /* Must be equal to height*/
-  border-radius: 50%;    /* Turns the square into a perfect circle */
-  overflow: hidden;      /* Cuts off the sharp corners of the image */
-  border: none; /* Optional: Adds a nice colored border */
-  aspect-ratio: 1/1;
-  position: relative;
-  bottom: 220px;
-  left: 1500px;
-}
-
-.profile_container .profile {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* 2. Style the image inside */
-.profile_container .profile img {
-  width: 100%;           /* Makes the image fill the container */
-  height: 100%;          /* Makes the image fill the container */
-  object-fit: cover;     /* Prevents stretching by cropping to fit */
-  display: block;
-  border: 2px solid gray;
-}
-
-.next_button {
-  display: inline-block;
-  padding: 20px;
-  background-color: red;
-  color: white;
-  text-decoration: none;
-
-}
-#logo_web {
-  position: relative;
-  bottom: 22px;
-}
-/*this is for the image on ten_laws_html*/
-#tenlawshtmlimage {
-  object-fit: cover;
-  height: 310px;
-  object-position: top;
 }
