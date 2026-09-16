@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>De Morgan's Law</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="white-space">
+    <h1><center>De Morgan's Law</center></h1>
+    <p>One of the most annoying things in math is the parenthesis. Besides being complicated to evaluate, they are difficult to remove and properly finish off the equation. Thankfully we have distribution, but what if we have an item outside the parenthesis that cannot be distributed through normal means? One of these "undistributables" is the complement. When we want to distribute a complement an item in parenthesis, what can we do?</p>
+    <p>This is where De Morgan's law comes in! De Morgan's law is a law from Set Mathematics, but is also applicable to boolean algebra. The technical defenition is that <b class="extrabold">“the complement of the intersection of two sets is the union of their individual complements”</b>. To understand this definition, we must understand the underlying set theory behind it.</p>
+    <center><h2><b>Set Theory</b></h2></center>
+    <p>Set Theory is its own jungle of properties and math, but we will cover the basics to cement your own understanding of De Morgan's Law. But what is a set? A set is a "list" of elements that have something in common. The set (2, 4, 6, 8...) has the property that it is even. The set (10, 100, 1000, 10000) have the property that it is a multiple of 10. The requirement to be apart of the set is known as the "set-builder". For example, if I wanted to construct a set with a set-builder of prime numbers. I would write all of the prime numbers that exist, written as (2, 3, 5, 7, 11...).</p>
+    <p>Two words mentioned in the technical definition are "intersection" and "union". These are actions that we can do to sets. Imagine that we have inputs A and B, and we name these as sets. The intersection and union of these sets create De Morgan's Law. But what do these terms mean?</p>
+    <p>A union of sets (symbol ∪) can be thought of as the logical OR operator. This creates a new set which all elements (individual items within sets) can join if they are apart of either of the sets in union. For example, A is the only element of set A, while B is the only element of set B.The union of set A and set B, named set C, will include all elements of A and B. In conclusion, if an element is in A <b>OR</b> B, it will be in set C.</p>
+    <p>On the other hand, an intersection of sets (symbol ∩) can be thought of as the logical AND operator. This creates a new set of which elements can join only if they are apart of both sets. For example, if there is a set (1, 2) and another set (2, 3). Only 2 can join the intersection set since it is in both sets. In conclusion, if an element is in A <b>AND</b> B, it will be in set C.</p>
+    <center><h2><b>Exploring De Morgan's Law</b></h2></center>
+    <p>Relooking at the definition: <br><br><b class="extrabold">"the complement of the intersection of two sets is the union of their individual complements”</b><br><br>Let's imagine two sets - naming them A and B. Recall how I said that an intersection of sets is the logical AND? Well now lets apply the intersection (AND) to both sets, before taking the complement. We now have the form of (A * B)'. By definition, this is equivalent to the union (Logical OR) of their individual complements. Thusly, (A * B)' = A' + B'.</p>
+    <p>Now I lied to you a little bit. There are actually two of De Morgan's laws. But don't worry, the second one is basically the opposite of the first one. It states:<br><br><b class="extrabold">"the complement of the union of two sets is equal to the intersection of their individual complements"</b><br><br>Let's take those two sets A and B again. We know that the union is the logical OR of the two sets. This must be complemented to complete the first side of the equation. By definition, this is directly equal to the intersection (AND) of their individual complements. Thusly, (A + B)' = A' * B'.</p>
+    <center><h2><b>Intuitive Definition</b></h2></center>
+    <p>While knowing the formal definition and theory behind De Morgan's Law is nice, all of this math may be hard to memorize. For that reason, I introduce the more practical intuitive method.</p>  
+    <p>The idea is that when you have a parenthesis with a complement outside of it, and need to use De Morgan's Law. You can imagine distributing the negation. However the cost for distributing that negation is switching the sign to its alternating operation. For example, consider (A + B)'. We can distribute the negation through the parenthesis resulting in A' + B'. However since we distributed, De Morgan's law requires that we swap the sign to its alternating. In this case, we see the union sign (+), which per De Morgan's law must be swapped to intersection (*). Finally once these steps are done, we are left with the final result A' * B'.</p>
+    <p>Learning of this new process, we can restate De Morgan's law as two steps:</p>
+    <ul>
+      <li>Distribute the negation through the parenthesis</li>
+      <li>Swap the set operation for its alternative</li>
+    </ul>
+    <center><h2><b>Applications in Real Life</b></h2></center>
+    <p>Suppose that we have the statement: <br><br><b class="extrabold">"I don't eat chicken or soup"</b><br></p>
+    <p>This statement can be applicable by De Morgan's Law - since we are negating (with don't) both "I eat chicken" and "I eat soup". Since this person does (not (eat chicken + eat soup)). We can distribute the negation not. Thusly, he does not eat chicken or he does not eat soup. De Morgan's Law says that we must swap the sign out, in this case from a union to an intersection. <br><br>Thusly, "I don't eat chicken or soup" is the same thing as "I don't eat chicken and I don't eat soup.".</p>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="demorgans_law.html">De Morgan's Law</a><br>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a>
+    </center>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
