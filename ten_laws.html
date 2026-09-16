@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Ten Laws of Boolean Algebra</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="white-space">
+    <h1><center>The Ten Laws of Boolean Algebra</center></h1>
+    <p>When you think of a law, what do you think of? There are plenty of laws that exist in our society. Government laws, tax laws, physical laws, you get the idea! The idea of Boolean Algebra laws shouldn't be too foreign, as it a similar concept. Laws are absolutes that must always be obeyed. While laws are more flexible in our society, Boolean laws are constant, unwielding, and unchanging.</p>
+    <p>This article will be broken into two sections. Laws which are applicable to base 2 and base 10 operations (joint laws), and laws which are just applicable to base 2 (excluusive laws). I will make the brash assumption that you are reading this, you may be interested in computer science or computer engineering, and you are probably familiar wiith some of these properties. But these are here for complete continuity. Without further to do, lets begin!</p>
+    <center><h2><b>Commutative Law</b></h2></center>
+    <p>Have you ever seen a "+" sign before? Have you ever seen a "*" sign before. Congrats, you will probably know what I am talking about. This is a very useful law, which says that the product or summation of two or more terms will always stay the same regardless of arrangement. This means that 3 * 5 = 5 * 3, and 3 + 6 = 6 + 3. This applies no matte the number of variables, meaning that we never have to worry about multiplying or adding in a certain order. Take note that this exclusive applies to multiplication and addition.</p>
+    <center><h2><b>Associative Law</b></h2></center>
+    <p>Consider the parenthesis symbol for a moment. What is the point of it? It doesn't even do any real math! But it does tell us when to group things together, giving them the top most priority in problems to solve, as they must be done first. Well we talked about in the Commutative Law how addition and multiplication always wield the same results, that applies even with groupings! In an equation of pure addition or multiplication, we are allowed to put parenthesis wherever we want without affecting any of the values. For example, (2 + 3) + 4 = 2 + (3 + 4). Pretty sweet right?</p>
+    <center><h2><b>Distributive Law</b></h2></center>
+    <p>While we are on the subject of paremthesis, those things are quite confusing aren't they. When can I use them? When can I drop them? When can I neglect them? In fact, there are only four situations when you can drop parenthesis:</p>  
+    <ul>
+      <li>After you do all the math inside the parenthesis</li>
+      <li>When only addition and multiplication is used (Associative Law)</li>
+      <li>When there is only a plus symbol (no coefficient) in the front</li>
+      <li>When the distributive property is applied</li>
+    </ul>
+    <p>So what is this distributive property? When we have a term out front of the parenthesis, we can multiply that term by each individual term inside the parenthesis, and sum or subtract the finished result based on the operators. This idea sounds complicated on paper but is simple upon execution.</p>
+    <img src="https://c8.alamy.com/comp/2RBTC0E/distributive-property-of-multiplication-in-mathematics-simplify-expressions-mathematics-resources-for-teachers-and-students-2RBTC0E.jpg" alt="Distributive law Black and White Stock Photos &amp; Images - Alamy" height="500px" width="535px" id="tenlawshtmlimage"/>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <p>Since you are reading this article, I assume that you are in Computer Science or a technical adjacent degree. In that case, you probably already know very well of the above rules. Whats the point of reading this? Well the next rules - the boolean exclusive rules - are about to get saucy. Get prepared to learn about some very interesting properties which make boolean math far different from regular math. Ready? Lets go.</p>
+    <center><h2><b>Identity Law</b></h2></center>
+    <p>Imagine two letters A and B. Both of these letters can be equal to any number in the numbering system (in this case 0 and 1). Well 0 and 1 are both interesting numbers. What happens when we multiply by zero? Well it becomes zero as well (property of zero). What happens when we multiply by one? Well it will just stay itself. In a numbering system of exclusively 0 and 1, the output will either stay itself or become zero. Boolean Algebra makes note of this law with the Identity Law; Stating that A * 1 = A, and that A + 0 = A. Doing these operations guarantees that the value remains A, essentially making these expressions redundant.</p>
+    <center><h2><b>Null (Domination) Law</b></h2></center>
+    <p>Null (Domination) Law extends on the idea of identity law, but with new adjustments. It basically defines how unknown variables can be manipulated to give known outputs. For Null (Domination) Law - yes you do have to say that entire string - A * 0 = 0, and A + 1 = 1. We notice that instead of variables being returned, numbers are. This is useful because now instead of keeping hunky expressions, we can instead replace them with an easy number.</p>
+    <center><h2><b>Idempotent Law</b></h2></center>
+    <p>The Idempotent Law has to be the most interesting one in my opinion. A justification of how it can be explained goes back to the properties of 0 and 1 in base 10 numbering. Building upon the theory of the Identity Law, what does 0 * 0 equal? Well its equal to 0. What about 1 * 1? Thats equal to one. If those are the only two numbers in your entire numbering system, the argument can be made that any number multiplied by itself is simply itself. Putting this into a formal rule, for any value of A in base 2 numbering, A * A = A. Also from that, A + A = A. Pretty cool stuff am I right?</p>
+    <center><h2><b>Complement Law</b></h2></center>
+    <p>In base 2 numbering, there are only 2 numbers. This means that if a variable isn’t one value, it must be the other one. We actually represent this idea as a “compliment”. For example, let's say that A is equal to some value, A’ (complement denoted by prime) must be the other value. In boolean algebra, you are going to run into complements all the time, and you should be equipped to deal with them. For that reason, we have our own special set of equations for them. For any A in base 2 numbering, A’ * A = 0, and A + A’ = 1. The first one can be justified by the fact that one of them equals 0, setting the whole equation to 0. The second one can be proven by the Null (Domination) Law, saying that 1 + 0 or 0 + 1 is 1.</p>
+    <center><h2><b>Involution Law</b></h2></center>
+    <p>This one is pretty simple. Remember when I was rambling about complements and their properties. Well what if we complement something twice. Well when we take the complement of 1, we get 0. Then when we complement 0, we get 1. This double complementing always returns the same value. Writing this into form, we get that (A’)’ = A. This is probably the easiest one to understand on this list.</p>
+    <center><h2><b>Absorption Law</b></h2></center>
+    <p>We follow the simplest one with the most complex one. Your welcome. Take the expression A(A+B), what is the first thing that comes to mind. Distribution of course! Now we have AA+AB. Now what? Well if we use our knowledge from the Idempotent Law, the AA simplifies to A. This leads to A+AB. We can then factor out the A using our handy distribution law, leading to A(1+B). What is 1 + B, according to the Null (Domination) Law, 1. Now we have A(1), which according to the Identity Law, is A. We just brought the avengers of boolean algebra properties to justify the Absorption Law, but we did indeed prove it true.</p>
+    <center><h2><b>De Morgan's Law</b></h2></center>
+    <p>Hate to leave you on a cliffhanger, but De Morgan’s Law is so advanced that we decided it deserves an article of its own (next one). However I will give you a little taste of what it is. Pulling from the technical definition, it consists of two laws. Here they are.</p>
+    <ul>
+      <li>The negation of a conjunction is logically equivalent to the disjunction of the separate negations</li>
+      <li>The negation of a disjunction is logically equivalent to the conjunction of the separate negations</li>
+    </ul>
+    <p>If you didn’t understand that, then the negation of a conjunction is the disjunction of the negations, and the negation of a disjunction is the conjunction of the negations. See why we are giving it its own article.</p>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a>
+    </center>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
