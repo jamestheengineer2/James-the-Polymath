@@ -77,3 +77,9 @@ a:hover {
   position: relative;
   bottom: 22px;
 }
+/*this is for the image on ten_laws_html*/
+#tenlawshtmlimage {
+  object-fit: cover;
+  height: 310px;
+  object-position: top;
+}
