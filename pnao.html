@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boolean PEMDAS (PNAO)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="white-space">
+    <h1><center>PNAO</center></h1>
+    <p>We have some pretty remarkable math in our base 10 system. After all, we have been doing math for thousands of years at this point. But one of our remarkable inventions is PEMDAS. Before PEMDAS, math was a wild west of expressions and addition and multiplication. There was no real "correct" way to do anything. PEMDAS layed down the framework for algebra, and allowed for a constant way to compute solutions. </p>
+    <p>Much like base 10, boolean math can be a wild west of NAND gates and distributions, thus the boolean mathematicians working with computers needed to make a framework of which order to do things. For this, we came up with the PNAO system, standing for (Parenthesis, Not, And, OR).</p>
+    <center><h2><b>PNAO Theory</b></h2></center>
+    <p>The estute observers among you may have realized something while reading this article. There are some operations that can't be done in boolean math. Take subtraction for instance. In order for that to even be possible, we would need negative numbers, which are impossible (we can't send a negative signal to a computer). With that in mind, here are the operations that cannot be done in Boolean Algebra:</p>
+    <ul>
+      <li>Division: This implies that fractions exist</li>
+      <li>Exponents: Proven redundant due to the idempotent law</li>
+      <li>Square Roots: This implies that exponents exist</li>
+      <li>Subtraction: Impossible due to the lack of negative numbers</li>
+    </ul>
+    <p>For these reasons, we are missing more letters than usual. However, we only need to remember four simple operations. For example, take "AB + (AB)' where A = 1 and B = 0. We first must evaluate the parenthesis (P) using De Morgan's Law. From this, (AB)' converts to A' + B'. Now we evaluate the negations (N) - coming to the conclusion that A' is 0, while B' is 1. The left AB value must be ANDed (A) - and evaluating 1 AND 0 returns 0. Finally, the final result of the De Morgan is an OR (O) of A' and B'. The result of 0 OR 1 is 1. Substituing all of these values, "AB (1 AND 0) + A' + B' (0 OR 1)" is 0 + 1. Following all of these steps returns the value of the entire equaiton as 1.</p>
+    <center><h2><b>PNAO Review</b></h2></center>
+    <p>One thing that seperates base 10 from base 2 is that you can't be "close" to the right answer. You can make a mistake crunching numbers in base 10 and get a somewhat close answer. But if you make a mistake in base 2 numbering - you can get your equation completely wrong. Since there is only 1 or 0, you will either be right or wrong, no in betweens. Thusly it is of the upmost importance to follow PNAO and get the correct result.</p>
+    <p>Here is a final and convenient review of PNAO:</p>
+    <ul>
+      <li>P: Parenthesis specify which operation to do first</li>
+      <li>N: All negated values must be switched to the opposite</li>
+      <li>A: Evaluate the AND operation of both values</li>
+      <li>O: Evaluate the OR operation of both values</li>
+    </ul>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="demorgans_law.html">De Morgan's Law</a><br>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a>
+    </center>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
