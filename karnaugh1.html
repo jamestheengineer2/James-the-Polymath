@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Into the Karnaugh Map (Part 1)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="white-space">
+    <h1><center>Karnaugh Map (Part 1)</center></h1>
+    <p>We have talked quite extensively about minterms/maxterms and their applications in boolean algebra. Finally, we are going to see this in action with the Karnaugh Map (K-Map). This is one of the most versatile maps in boolean algebra, and allows you to evaluate minterms and maxterms from a function of literals.</p>
+    <p>Lets say that we have a list of 8 literals, and our goal is to find the ruleset of variables that each function in the literal is following. We can write the minterms or maxterms of each literal, and fill out our K-Map with the determined values. After all calculations are done, we can find the original ruleset of which each and every literal follows.</p>
+    <center><h2><b>Grey Code</b></h2></center>
+    <p>The first thing we must discuss is grey code. Instead of using standard boolean counting, the K-Map uses a special syntax called grey code.</p>
+    <p>Consider that we are counting in boolean algebra. We go in series of 00, 01, 10, 11 and so on. However grey code has restrictions on the number of digits are changing. For instance, when counting from 01 to 10, we notice that the first and second digit change states. This is not permitted in grey code counting, as only one digit may change. For this, we will always skip to the next logical number in the boolean counting series. Then the number that we skipped will come after the number that changed 1 digit. Thusly, after 01 is 11. See how only one digit changes?</p>
+    <p>When constructing a K-Map, you must use the Grey Code. Not doing so will result in an inaccurate result. Although you will rarely use Grey Code beyond 4 numbers of the series, on this website our goal is to take you the extra mile. Here are the first 16 numbers in the series of Grey Code.</p>
+    <table>
+      <tr>
+        <th>Binary</th>
+        <th>Grey Code</th>
+        <th>Number Equivalent</th>
+      </tr>
+      <tr>
+        <td>0000</td>
+        <td>0000</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>0001</td>
+        <td>0001</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>0010</td>
+        <td>0011</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>0011</td>
+        <td>0010</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>0100</td>
+        <td>0110</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td>0101</td>
+        <td>0111</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>0110</td>
+        <td>0101</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>0111</td>
+        <td>0100</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>1000</td>
+        <td>1100</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>1001</td>
+        <td>1101</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>1010</td>
+        <td>1111</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>1011</td>
+        <td>1110</td>
+        <td>11</td>
+      </tr>
+      <tr>
+        <td>1100</td>
+        <td>1010</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>1101</td>
+        <td>1011</td>
+        <td>13</td>
+      </tr>
+      <tr>
+        <td>1110</td>
+        <td>1001</td>
+        <td>14</td>
+      </tr>
+      <tr>
+        <td>1111</td>
+        <td>1000</td>
+        <td>15</td>
+      </tr>
+    </table>
+    <p>Take as much time as you need to review Grey Code and analyzed the table. I included a lot of numbers but your number of Grey Code will very rarely exceed four. Refer to this chart for the Karnaugh Construction which comes later in the article.</p>
+    <center><h2><b>Functions</b></h2></center>
+    <p>We have also been learning minterms and maxterms to lead up to the concept of functions. A function is a series of literals with an evaluation of the final result. There are two sections - the literal section and the final evaluation section. The literal should be unique for all strings of numbers, and is typically written in order of binay. Take a look!</p>
+     <table>
+      <tr>
+        <th>ABC</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <td>000</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>001</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>010</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>011</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>100</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>101</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>110</td>
+        <td>0</td>
+      </tr>
+      <tr>
+        <td>111</td>
+        <td>1</td>
+      </tr>
+    </table>
+    <p>With just these two categories on their own, we do not have enough information to fill out the Karnaugh Map. To complete this all the way, we must evaluate the minterms or maxterms of the ABC solution. Here is our adjusted table with all minterms. We will also keep a number of minterms to better track them.</p>
+     <table>
+      <tr>
+        <th>ABC</th>
+        <th>Function</th>
+        <th>Minterm</th>
+        <th>Minterm #</th>
+      </tr>
+      <tr>
+        <td>000</td>
+        <td>0</td>
+        <td>A'B'C'</td>
+        <td>m0</td>
+      </tr>
+      <tr>
+        <td>001</td>
+        <td>1</td>
+        <td>A'B'C</td>
+        <td>m1</td>
+      </tr>
+      <tr>
+        <td>010</td>
+        <td>0</td>
+        <td>A'BC'</td>
+        <td>m2</td>
+      </tr>
+      <tr>
+        <td>011</td>
+        <td>1</td>
+        <td>A'BC</td>
+        <td>m3</td>
+      </tr>
+      <tr>
+        <td>100</td>
+        <td>1</td>
+        <td>AB'C'</td>
+        <td>m4</td>
+      </tr>
+      <tr>
+        <td>101</td>
+        <td>0</td>
+        <td>AB'C</td>
+        <td>m5</td>
+      </tr>
+      <tr>
+        <td>110</td>
+        <td>0</td>
+        <td>ABC'</td>
+        <td>m6</td>
+      </tr>
+      <tr>
+        <td>111</td>
+        <td>1</td>
+        <td>ABC</td>
+        <td>m7</td>
+      </tr>
+    </table>
+    <p>There are cases where you should choose one over the other when dealing with minterms and maxterms. This will be further justified in the next article of the Karnaugh Map, but a general rule of thumb applies. When there are more 1s in the function then 0s, then use minterms. However when there are more 0s in the funciton than 1s, use maxterms. Again, this rule will be justified further when dealing with Karnaugh Maps in the future.</p>
+    <center><h2><b>Sketching the K-Map</b></h2></center>
+    <p>Using all of the information that we just learned, we will sketch the K-Map. A K-Map is a grid, and the number of boxes in the grid must be of 2^n. This function is valid since there are 8 (2^3) literals.</p>
+    <p>There are multiple layers in the K-Map. The minterm # corresponds to the base-10 number conversion of the grey code labels.For instance, if grey code has the label "11", the conversion would be to 3 in base-10. This 3 corresponds to the minterm number 3. Since the K-Map has rows, we simply continue counting from the line break. Accounting for the syntax of Grey Code, it is important to rearrange the minterm # when there is a deviation of Grey Code from standard binary counting.</p>
+    <ul>
+      <li>Label all grids above in Grey Code</li>
+      <li>Assign each grid-box a number</li>
+      <li>Match the minterm # to the corresponding number</li>
+      <li>Adjust the row numbering according to Grey Code</li>
+    </ul>
+<div class="grid-container">
+
+  <div class="labels-horizontal">
+    <span>00</span>
+    <span>01</span>
+    <span>11</span>
+    <span>10</span>
+  </div>
+
+  <div class="labels-vertical">
+    <span>0</span>
+    <span>1</span>
+  </div>
+
+  <div class="grid-item">m<sub>0</sub></div>
+  <div class="grid-item">m<sub>1</sub></div>
+  <div class="grid-item">m<sub>3</sub></div>
+  <div class="grid-item">m<sub>2</sub></div>
+
+  <div class="grid-item">m<sub>4</sub></div>
+  <div class="grid-item">m<sub>5</sub></div>
+  <div class="grid-item">m<sub>7</sub></div>
+  <div class="grid-item">m<sub>6</sub></div>
+</div>
+<p>Notice that the Karnaugh Map has numbering that is different than expected when dealing with Grey Code. This is because we are doing direct binary conversions from Grey Code. So the "11" section translates to 3 in base-10. This 3 should match the minterm #3. As the layers move down in the K-Map, the numbering of minterms increase. Also, we often call these K-Maps "3 Variables" since the Grey Code is often converted into its minterm/maxterm form. This K-Map requires 3 variables to represent the Grey Code maxterms/minterms.</p>
+<center><h2><b>Summary</b></h2></center>
+<p>In this article, we discussed the theory of the K-Map. However in the next article, we will be doing actual constructions of K-Map Functions from the literal sections and final evaluations. However you learned all of the necessary building blocks to finally use this function. So without any further to do, lets jump into Part 2 of the Karnaugh Map.</p>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="demorgans_law.html">De Morgan's Law</a><br>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a>
+    </center>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
