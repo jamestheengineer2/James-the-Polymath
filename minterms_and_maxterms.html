@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Minterms and Maxterms</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="white-space">
+    <h1><center>What are Minterms and Maxterms</center></h1>
+    <p>Although omnious sounding, minterms and maxterms are pretty interesting concepts in boolean algebra. They build the base for Karnaugh Maps and Multiplexers (discussion about these later). However what really are they? How do they work?</p>
+    <p>I like to think of minterms and maxterms as the boolean algebra equivalents of IDs. They represent the state of a literal by its unique result tied to its intersection or union. This definition sounds complicated but works on one simple fact. Take the AND and OR gates. The AND gate only returns 1 when both inputs are 1, while the OR gate only returns 0 when both inputs are 0. This is true no matter now many variables you have in the eqaution. Thusly, we can identify strings by if their gate returns one value compared to all others which return the other value.</p>
+    <p>On one hand, minterms cover the domain of uniquely identfying a literal using AND (setting all variables to 1). On the other hand, maxterms identify a literal using OR (setting all variables to 0).Typically minterms/maxterms are strings of boolean numbers like 010 or 1011. We convert these into "IDs" by assigning each number in the string to a variable.</p>
+    <center><h2><b>Minterm Construction</b></h2></center>
+    <p>Imagine that we have the string 0110, and want to construct a minterm. We will first convert each number in the string to a variable. So the first number would be A, the second number would be B, and so on. For minterms (identified with AND), we assume all variables must 1 to return a unique AND of 1.</p>
+    <p>However, the AND of 0110 will certainly return 0 due to the zeroes in the literal. So how must we manipulate it to return 1? Well here is where the variable system is useful - 0110 converts to ABCD. If one of the terms is a zero, we will simply take the complement of its corresponding variable.</p>
+    <ul>
+      <li>Value A (0) must be converted to A'</li>
+      <li>Value B (1) will remain as B</li>
+      <li>Value C (1) will remain as C</li>
+      <li>Value D (0) must be converted to D'</li>
+    </ul>
+    <p>With this operation done, we now merge all of our variables together as A'BCD'. When we reevaluate the literal with 0110 being plugged in, it returns the value 1111. 1 AND 1 AND 1 AND 1 will return a 1. Thusly, the minterm of 0110 is A'BCD'.</p>
+    <p>Let's take another example of this. Suppose we want the minterm of 1110. There is a zero on the fourth value which stops the function from returning 1 when ANDed. To fix this problem, we will do a similar operation to last time. We find that the only value that necessarily must be converted is D (D = 0 indicates conversion to D'). Thusly, our minterm as a result of this is ABCD'.</p>
+    <p>In summary, the steps to calculate a minterm is to:</p>
+    <ul>
+      <li>Convert all digits to variables</li>
+      <li>Negate all variables equal to zero</li>
+      <li>Remerge all variables</li>
+      <li>Restate the minterm</li>
+    </ul>
+    <center><h2><b>Maxterm Construction</b></h2></center>
+    <p>Maxterm constructions are very similar to minterm constructions. The only real difference is that you are "IDing" the OR to 0. Let's say that we are evaluating the maxterm. We do a similar procedure to last time, converting each digit of the literal into variable form. For maxterms, we assume all variables carry the value of zero, to set the condition true that the OR is 0. It is known that if there is a 1 in the equation, the OR will be set to 1. Thusly, we avoid all 1s.</p>
+    <p>Let's say that we are evaluating the maxterm of the literal 1100. The first thing we must do is convert every digit to a variable. Once this is done, we will compare the variable to the digit. If the digit is 0, then the statement does not need to be changed. However if the digit is 1, then we must set the variable to its complement.</p>
+    <ul>
+      <li>Value A (1) must be converted to A'</li>
+      <li>Negate all variables equal to one</li>
+      <li>Remerge all variables</li>
+      <li>Restate maxterms</li>
+    </ul>
+    <p>Now that you know how to evaluate minterms and maxterms, you may be wondering why this is even useful? Well believe it or not, minterms and maxterms are a good 30% of all boolean algebra. Knowing these is a necessity to evaluate anything. Advanced concepts like the Karnaugh Map and the Multiplexer are built off the back of minterms and maxterms. So I suggest that you hit the books are practice. Good luck!</p>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="demorgans_law.html">De Morgan's Law</a><br>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a>
+    </center>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
