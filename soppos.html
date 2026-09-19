@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SoP/PoS</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="white-space">
+    <h1><center>SoP/PoS</center></h1>
+    <p>Now that we know about minterms and maxterms, we may want to actually do something with these operations. There is an operation of Boolean Math in which strings of maxterms and minterms must be added together. However they are added in different ways. In this article, we will be justifying the computations of these two in a process called SoP and PoS notation.</p>
+    <center><h2><b>Product of Sums (PoS)</b></h2></center>
+    <p>PoS stands for Product of Sums. This is the ruleset used to computer maxterms. Let's say that we have six maxterms that must be added together. One thing we know about maxterms is that they use the OR (sum) operation. As per the Product of Sums - we will be taking the <b>product</b> of <b>sums</b>. Essentially, we will be ANDing all maxterms.</p>
+    <p>We put all of the maxterms in parenthesis and take the product of each parenthesis in the maxterm. For example - if we needed to add the maxterms A' + B' + C and A + B + C. We would take our parenthetic (A+B+C) and (A'+B'+C). Then we would take the product of the two - leaving (A+B+C)(A'+B'+C).This works for all number of maxterms.</p>
+    <center><h2><b>Sum of Products (SoP)</b></h2></center>
+    <p>SoP stands for Sum of Products. While PoS does a product of sums on maxterms, the SoP does a sum of products on minterms. We already know that minterms work with AND (product) terms. If we have six minterms that must be added together, we simply take the sum of all of those minterm products.</p>
+    <p>Consider we have four minterms that must be computed. These go as AB'C', ABC', A'BC', and ABC. To evaluate the addition of minterms, we must take the sum of all products. Unlike maxterms where we must insert addition in the variables, we can just wrap our minterms in parenthesis. The addition of all parenthesis give our final result. Thusly, the SoP of the above minterms are (AB'C') + (ABC') + (A'BC') + (ABC).</p>
+    <center><h2><b>Applications of SoP/PoS</b></h2></center> 
+    <p>The question might come to you of why we even care about SoP and PoS operations of minterms. This becomes important in later math like K-Maps and Multiplexers. One side note that I would like to make is that there is an overwhelming preference of minterms over maxterms. Most K-Maps and Multiplexers make use of SoP notation from minterms. This is due to the unilateral preference of Active High versus Active Low logic in computers. Don't get me wrong - maxterms are still very useful and very important - but you will notice this preference of SoP expressionsin real life.</p>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="demorgans_law.html">De Morgan's Law</a><br>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a>
+    </center>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
