@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Universal Logic Gates</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="white-space">
+  <h1><center>Universal Logic Gates</center></h1>
+  <a href="h.html">h</a>
+  <p>A lot of things are universal. Laws, taxes, and base 2 universal logic gates! You may wonder what are universal logic gates? Well these guys allow you to construct any logic gate out of just one. If I wanted to create an XNOR logic gate from a bunch of AND gates - that wouldn't be possible - as AND is not able to create such a truth table no matter how it is arranged. Instead, if I wanted to construct an XNOR gate from a universal logic gate - I would be completely able to do so. Besides being flexible, they are also much more cost effective. If a computer scientist wanted to create a computer and was running low on XNOR gates, he could just use universal logic gates. So now that I have your interest peaked, lets begin!</p>
+  <p>There are only two universal logic gates - NOR and NAND. These two logic gates can create any other logic gate. Some gate constructions from universal logic gates require more universal logic gates than another. For example, if I were to construct an XNOR from NAND - it would require 5 NAND gates. However if I wanted to construct a NOT gate from NAND - it would only require 1. Instead of constructing the XNOR from NAND for 5 gates, we can construct the XNOR from NOR for only 4 gates. These differences are small, but considering there are billions of gates needed to run a CPU - these small decisions add up quickly.</p>
+  <b><center><h2>Construction from NAND Universal Logic Gate</h2></center></b>
+  <p>To prove that all gates can be constructed from the NAND gate, we will demonstrate a succesfull construction for each one. We be representing all 6 (not including the universal gate itself) of the common gates. A lot of universal logic gate constructions can be built from De Morgan's Law. If you are unfamiliar with this law - read the De Morgan's Law article <a href="demorgans_law.html">here</a>.</p>
+  <p>All NAND gates are the opposite of AND gates. Since the AND gate uses the form of (AB), the NAND gate must use the inverted form (AB)'. Therefore for both inputs in NAND - we do the logical AND operation and negate the outside.</p>
+  
+  <center><h3>NOT from NAND Gates</h3></center>
+  <img src="https://storage.googleapis.com/dycr-web/image/topic/logic-gate/universal-gate-nand/not-nand.png" width="550" height="100%"/>
+  <p>The NOT Gate is the simplest to construct from NAND Gates. In fact, it only needs 1! The only requirement to create a NOT gate is to have the same input connected to both legs of the NAND gate. In boolean representation - (A AND A)'. This simplifies to (A)' due to idempotent law. Therefore, we created the very definition of the NOT gate from 1 NAND gate.</p>
+  <center><h3>AND from NAND Gates</h3></center>
+  <p>We know that NAND and AND are the opposite gate, as the truth gate shows the opposite value for each column. This is also self-evident from the fact that NAND is short for NOT AND. Therefore, if we reapply a NAND gate to a NAND gate - the inputs reverse back to an AND gate (proven from Idempotent Law). </p>
+  <img src="https://www.learningaboutelectronics.com/images/AND-gate-from-NAND-gates.png" width="550px" height="100%">
+  <p>The second NAND gate acts as a NOT gate. Note that the first NAND gate has one output connected to the two legs of the second NAND gate. This means that the second NAND gate has two of the same inputs. NAND will take the AND of the same inputs negated, represented by (A AND A)'. We know this behaves exactly as a NOT gate. Taking the NOT of every input in the NAND gate will simply give us the AND gate.</p>
+  <center><h3>OR from NAND Gates</h3></center>
+  <img src="https://www.learningaboutelectronics.com/images/OR-gate-from-NAND-gates.png" width="550px" height="100%">
+  <p>Building from our idea of negations using NAND gates. We have two preset inputs set above, both labeled "Input". When both inputs enter the NAND gate - the NAND gate returns (input AND input)' - or more simply (input)'. Both of the inputs lead into the right NAND gate. The operation done here is ((input)' AND (input)')'. Using De Morgan's Law - the output is functionally equal to (input)'' OR (input)''. Removing both complements with the double negation - this yields (input) + (input).</p>
+  <center><h3>NOR from NAND Gates</h3></center>
+  <p>The reasoning behind NOR constructions from NAND Gates can be simplified by recognizing the relationship between OR and NOR. Much like AND and NAND - OR and NOR are opposite gates. The truth table of the OR gate inverted is functionally equivalent to the NOR gate. Therefore, all we really need are the previously constructed OR Gate and NOT Gate.</p>
+  <img src="https://content.instructables.com/FCR/NBYP/H3Z3C8OW/FCRNBYPH3Z3C8OW.jpg" alt="NOR Gate From NAND Gate - Instructables" width="550px"/>
+  <p>The NOR gate construction of NAND is just the NAND-OR gate with a NOT gate appended. The two NAND gates leading into the middle NAND gate are functionally equivalent to the OR gate. A NOT gate is attached to this OR gate. The NOT gate reverses every input on the OR gate truth table - leading to the NOR gate truth table. Hence, we have constructed the NOR gate.</p>
+  <center><h3>XOR from NAND Gates</h3></center>
+  <img src="https://www.researchgate.net/publication/335233129/figure/fig1/AS:793453613023232@1566185491372/Constructing-planar-crossover-gadgets-with-NAND-gates-a-XOR-symbol-b-NAND-symbol.png" width="550px"/>
+  <p>The left-most NAND gate has both of the inputs NANDed together. All the other NAND gates only have one direct input connection to either A or B. The left-most NAND gate output connects to the legs of both of the middle NAND gates.Naming left-most NAND output (AB)' as X, the middle NAND gates take the form of (XA)' from X NAND A, and (XB)' from X NAND B.</p>
+  <p>Here is where deriviation gets complicated. Both NAND gates are NANDed as ((XA)'(XB)')'. Applying De Morgan's law, this yieds:</p>
+  <ul>
+    <li>(XA)''+(XB)'' where X is (AB)'</li>
+    <li>Simplifies to (XA)+(XB) due to Idempotent Law</li>
+  </ul>
+  <p>X is just a substitution for the left-most NAND gate output (AB)'. Therefore, resubstituting X, the actual logic is:</p>
+  <ul>
+    <li>((AB)'A)+((AB)'B) for substitution of X</li>
+    <li>((A'+B')A)+((A'+B')B) for application of De Morgan's Law</li>
+    <li>(A'A+AB')+(A'B+B'B) for distribution of parenthesis</li>
+  </ul>
+  <p>Both A'A and B'B simplify to 0 as per Complement Law. After all of this, we are left with <b class="extrabold">(AB')+(A'B)</b>. The boolean logic of the XOR gate is (AB')+(A'B). This is functionally equivalent to the NAND construction of the XOR gate. Therefore, (A NAND (A NAND B)) NAND (B NAND (A NAND B)) is the NAND construction of the XOR operation.</p>
+  <center><h3>XNOR from NAND Gates</h3></center>
+  <p>It is useful that we have already derived the construction of XOR from NAND gates, as the XNOR is simply the inverse of XOR. Hence, we can simply take our construction of the XOR gate, and add a NOT gate to the end of the circuitry.</p>
+  <img src="https://electronicsphysics.com/wp-content/uploads/2026/03/XNOR-gate-using-NAND-gate-1024x433.webp" width="550px"/>
+  <p>The NAND construction of XNOR has the embedded NAND construction of XOR towards the left. The right-most NAND gate is responsible for the inversion of all inputs. Therefore, (((A NAND (A NAND B)) NAND (B NAND (A NAND B))) NAND ((A NAND (A NAND B)) NAND (B NAND (A NAND B)))) is the XNOR operation.</p>
+  <hr>
+  <b><center><h2>Construction from NOR Universal Logic Gate</h2></center></b>
+  <p>We know that you are probably sick of seeing the word NAND. Now we shift to the NOR gate. To prove that all gates can be constructed from the NOR gate, we will demonstrate a succesfull construction for each one. We will represent all 6 (not including the NOR itself) of the common gates.</p>
+  <p>All NOR gates are the opposite of OR gates. Since the OR gate uses the form of (A+B), the NOR gate must use the inverted form (A+B)'. Therefore for both inputs in NOR - we do the logical OR operation and negate the outside.</p>
+  <center><h3>NOT from NOR Gates</h3></center>
+  <img src="https://www.equestionanswers.com/notes/digital-logic-gates/not-using-nor.gif" width="550px"/>
+  <p>Similar to the NAND Gate construction of NOT. The NOR Gate can also negate when both inputs are the same. Take the statement (A+A)'. Removing the parenthesis with De Morgan's yields A'A'. Due to the Idempotent Law, A'A' simplifies to A'. Therefore, the NOT operation has been done.</p>
+  <center><h3>OR from NOR Gates</h3></center>
+  <p>We know that NOR and OR are the opposite gate, as the truth gate shows the opposite value for each column. This is also self-evident from the fact that NOR is short for NOT OR. Therefore, if we reapply a NOR gate to a NOR gate - the inputs reverse back to an OR gate (proven from Idempotent Law). </p>
+  <img src="https://www.tutorialspoint.com/digital-electronics/images/implementation-of-or-gate-from-nor-gate-3.jpg" width="550"/>
+  <p>What starts off as a NOR Gate truth table is inverted for each and every value. The resulting truth table is that of an OR gate. Therefore, we have constructed the OR gate.</p>
+  <center><h3>AND from NOR Gates</h3></center>
+  <img src="https://www.tutorialspoint.com/digital-electronics/images/implementation-of-and-gate-from-nor-gate-3.jpg" alt="Implementation of AND Gate from NOR Gate" width="550"/>
+  <p>Building from our idea of negations using NOR gates. We have two preset inputs set above, labeled A and B. When both inputs enter the NOR gate - the NOR gate yields the negation of the input. Both of the inputs lead into the right-most NOR gate. Here, we are NORing both A' and B' in the form (A' + B')'. Using De Morgan's Law - the output is functionally equal be (A)'' AND (B)''. Removing both complements with the double negation - this yields (A) AND (B).</p>
+  <center><h3>NAND from NOR Gates</h3></center>
+  <p>It becomes pretty easy to find the NAND construction once we already know the AND construction. All that really needs to be done is to append a NOR gate to the end of the AND gate.</p>
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20240606001337/implementation-of-nand-gate-using-nor-gate.webp" alt="Universal Logic Gates - GeeksforGeeks" width="550"/>
+  <p>The NOR gate construction of NAND is just the AND-NOR gate with a NOT gate appended. The two NOR gates leading into the middle NOR gate are functionally equivalent to the AND gate. A NOT gate is attached to this AND gate. The NOT gate reverses every input on the AND gate truth table - leading to the NAND gate truth table. Hence, we have constructed the NAND gate.</p>
+  <center><h3>XNOR from NAND Gates</h3></center>
+  <img src="https://www.tutorialspoint.com/digital-electronics/images/implementation-of-xnor-gate-from-nor-gate-1.jpg" alt="Implementation of XNOR Gate using NOR Gate" width="550"/>
+  <p>We tend to find that when constructing gates from Universal Logic Gates - the XOR/XNOR gates are the most complex. While other gates only need 2 NOR/NAND gates - the XOR/XNOR gates need 4 or 5. With that being said, the NOR construction is pretty similar to the NAND construction.</p>
+  <p>We start by NORing two inputs, A and B, into the left-most NOR gate. This yields (A+B)', which we will call "Z". The middle NOR gates will take the inputs (A, Z), and (B, Z). Both of these yield (A+Z)' and (B+Z)'. Once again, we NOR both of these inputs, resulting in ((A+Z)'+(B+Z)')'. In order to solve this any further, we must start simplifying.</p>
+  <ul>
+    <li>(A+Z)''(B+Z)'' due to De Morgan's Law</li>
+    <li>(A+Z)(B+Z) due to Double Negation Law</li>
+    <li>(A+(A+B)')(B+(A+B)') due to Z-Substitution</li>
+  </ul>
+  <p>To finish off all of the math that we just created. We must apply De Morgan's Law on Z and factor out chunky expressions:</p>
+  <ul>
+    <li>((A+A'B')(B+A'B')) due to De Morgan's Law</li>
+    <li>((A+B')(B+A')) due to Absorption Law</li>
+    <li>AB+AA'+BB'+A'B' due to Distribution of Binomials</li>
+  </ul>
+  <p>Both AA' and BB' simplify to 0 as per Complement Law. After all of this, we are left with <b class="extrabold">(AB)+(A'B')</b>. The boolean logic of the XNOR gate is (AB)+(A'B'). This is functionally equivalent to the NOR construction of the XNOR gate. Therefore, ((A NOR (A NOR B)) NOR (B NOR (A NOR B))) is the XNOR gate.</p>
+  <center><h3>XOR from NOR Gates</h3></center>
+  <p>Conveniently, we have already derived the XNOR Gate from NOR Gates. Taking advantage of the fact that XOR gates are simply complements of XNOR on the truth table - we only need to append a NOT gate.</p>
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250402123601335984/frame_15.webp" alt="XOR Gate - GeeksforGeeks" width="550"/>
+  <p>The NOR construction of XOR has the embedded XNOR construction towards the left. The right-most NAND gate is responsible for the inversion of all inputs. Therefore, (((A NOR (A NOR B)) NOR (B NOR (A NOR B))) NOR ((A NOR (A NOR B)) NOR (B NOR (A NOR B)))) is the XOR operation.</p>
+  <hr>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="ten_laws.html">The Ten Laws of Boolean Algebra</a><br>
+    <a href="soppos.html">SoP/PoS</a><br>
+    <a href="minterms_and_maxterms.html">Minterms and Maxterms</a><br>
+    <a href="demorgans_law.html">De Morgan's Law</a><br>
+    <a href="karnaugh1.html">Karnaugh Map (Part 1)</a><br>
+    <a href="pnao.html">PNAO</a><br>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a><br>
+    </center>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
