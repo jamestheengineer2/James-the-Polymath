@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplexers</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" >
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="white-space">
+    <h1><center>Multiplexers</center></h1>
+    <p>One thing that we haven't really addressed yet is the idea of multiple possible ideas existing in boolean algebra. However multiplexers are the things that answer our question. When we have many things we want to do, and we want those things to be dependent on what we select, we utilize multiplexers. In this article, we will find out how they work.</p>
+
+    <h2><center>Selectors</center></h2>
+    <p>To create a multiplexer, we must understand the idea of boolean reduction. For 1 digit, we can display 2 combinations. For 2 digits, we can display 4 combinations. You get the idea. The idea behind boolean reduction is that we can reselect that combination using digits.</p>
+    <p>We can compare this idea to minterms and maxterms. There are 8 possible boolean literals that can be represented by 3 variables. Each variable can be complemented or identitied to represent the 8 possible states. We use this idea to state the combinations (inputs) on one side, and the selectors (boolean maxterms/minterms) on the other side.</p>
+    <p>There is something I should tell you. There is a third section of the table for the multiplexer. This is the output portion. The ouput portion will always display the selected multiplexer from the selector switch. Looking from the table, if the input was 010, then the output would be Input 3. The output always takes one of the inputs and "chooses" that one based on the selector switch.</p>
+<table>
+  <tr>
+    <th>Input</th>
+    <th>Selector</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td>000</td>
+    <td>"Input 1"</td>
+  </tr>
+  <tr>
+    <td>001</td>
+    <td>"Input 2"</td>
+  </tr>
+  <tr>
+    <td>010</td>
+    <td>"Input 3"</td>
+  </tr>
+  <tr>
+    <td>011</td>
+    <td>"Input 4"</td>
+  </tr>
+  <tr>
+    <td>100</td>
+    <td>"Input 5"</td>
+  </tr>
+  <tr>
+    <td>101</td>
+    <td>"Input 6"</td>
+  </tr>
+  <tr>
+    <td>110</td>
+    <td>"Input 7"</td>
+  </tr>
+  <tr>
+    <td>111</td>
+    <td>"Input 8"</td>
+  </tr>
+</table>
+    <h2><center>2 Input Selector Switch</center></h2>
+    <p>The 2 Input Selector Switch is the most elementary of all Multiplexers. It can be imagined as a programmed boolean statement - choosing one value from two possible values. To illustrate this, we have created a nice example:</p>
+    <p>Consider that we have a blimp which will display one of two preconfigured messages on an LED screen. The first message displays "WILL YOU MARRY ME CHRISTINA" while the second message displays "WILL YOU MARRY ME BRENDA". The 2 Input Selector multiplexer will be used to select the options available.</p>
+    <p>There are only 2^1 options for inputs, thusly we only need 1 selector switch. We declare that when the selector switch is 0 - then display "WILL YOU MARRY ME BRENDA". However when the selector switch is 1 - it should display "WILL YOU MARRY ME CHRISTINA". The output "Z" can be determined by "S0'I0 + S0I1" (where S0 and S1 are selector switches and I0 and I1 are inputs).</p>
+    <p>The boolean equation can be boiled down to its properties. When selector switch S0' is 1, then I0 = I0 * S0' (Identity Law). Also when S0 is 1, then I0 = S0 * I0 (Identity Law). From this logic, when a valid selector input exists, then Z is that particular selector switch.</p>
+    <p>Lets say that we want the blimp to display "WILL YOU MARRY ME BRENDA", and set S0 to 0. Plugging this in, the equation is I0 * 1 + I1 * 0. As per identity law and null domination law - the ouput becomes I0. When we set S0 to 1, the equation is I0 * 0 + I1 * 1, which simplifies to I1. Therefore, the output Z is equal to the input pairing with the selector switch value equal to 1.</p>
+    <h2><center>4 Input Selector Switch</center></h2>
+    <p>Now lets move on to bigger things. The 4 (2^2) Input Selector switch requires 2 selector switches. An interesting property of multiplexers is that their output can be expressed as the OR of each input ANDed with its corresponding selector minterm. To explain what I mean by this, let's show the steps: </p>
+    <ul>
+      <li>Take all minterms of the selector switches (S1'S0', S1'S0, S1S0', S1S0)</li>
+      <li>Take the AND of the selector switch and input (S1'S0' AND I0)</li>
+      <li>Take the OR of all selector switch and input combinations in the equation</li>
+    </ul>
+    <p>Using those steps above, our output equation is (S1'S0'I0) + (S1'S0I1) + (S1S0'I2) + (S1S0I3). This process is scalable and applies to all multiplexer selector switches. Let's construct the truth table</p>
+       <table>
+    <tr>
+      <th>Input</th>
+      <th>Selector</th>
+      <th>Output</th>
+    </tr>
+    <tr>
+      <td>00</td>
+      <td>"Input 1"</td>
+      <td>S0'S1'I1</td>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>"Input 2"</td>
+      <td>S0'S1I2</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>"Input 3"</td>
+      <td>S0S1'I3</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>"Input 4"</td>
+      <td>S0S1I4</td>
+    </tr>
+    </table>
+    <h2><center>Summary</center></h2>
+    <p>There is no end to multiplexers. We can construct 8 Input Selector Swithces, 16 Input Selector Switches, and so on. The only rule is that the inputs must be to a power of 2, and that the selector switches must be the amount of the aforementioned power. The output equations can be synthesized by the equation process which we discussed earlier.</p>
+  </div>
+  <div class="links">
+    <center>
+    <h2><b><center>Links to Articles</center></b></h2>
+    <a href="ten_laws.html">The Ten Laws of Boolean Algebra</a><br>
+    <a href="multiplexers.html">Multiplexers</a><br>
+    <a href="soppos.html">SoP/PoS</a><br>
+    <a href="minterms_and_maxterms.html">Minterms and Maxterms</a><br>
+    <a href="demorgans_law.html">De Morgan's Law</a><br>
+    <a href="karnaugh1.html">Karnaugh Map (Part 1)</a><br>
+    <a href="pnao.html">PNAO</a><br>
+    <a href="srlatch_article.html"> SR Latch Article</a><br>
+    <a href="dlatch.html">D Latch Article</a><br>
+    <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+    <a href="tflipflop.html">T Flipflop Article</a><br>
+    </center>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
