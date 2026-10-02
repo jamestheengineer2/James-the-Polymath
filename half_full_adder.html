@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Half & Full Adders</title>
+ <meta name="viewport" content="width=device-width,initial-scale=1" >
+ <link href="style.css" rel="stylesheet">
+</head>
+<body>
+ <div class="white-space">
+   <h1><center>Half and Full Adders</center></h1>
+   <p>We have learned about many operations involving binary numbers. However most of our lessons have involved forms or circuitry - and haven't touched on actual computer mathematics. In this article, we will be covering binary arithmetic from computer circuitry.</p>
+   <p>Binary arithmetic is essential for computers to do the operations that they do. Processing units like the ALU (Arithmetic Logic Unit) sum binary values and store them into registers. These registers store data for the CPU to register later. All systems within a computer must use some form of addition to turn numbered binary data into their analog equivalents. This necessitates the use of complex arithmetic operations like addition or repeated addition (multiplication) to convert values into computer-readable binary files.</p>
+
+
+   <h2><center>The Half Adder</center></h2>
+   <p>The Half Adder is a type of adder which can successfully add and output carry numbers, but it cannot process input carry operations. </p>
+   <ul>
+     <li>Output carry is the evaluation of which numbers need to be carried</li>
+     <li>Input carry is the incorporation of a previous carry into addition</li>
+   </ul>
+   <p>The addition of boolean literals can be compared to the logical OR operation. For the two binary digits being added, take the OR of the two bits. However a key difference is that when both digits are 1, the result must carry over to the next column. This is from the fact that 1 + 1 = 10. Therefore we have an output of 0 with a carry operation of 1.</p>
+   <p>The only way to get an output of 1 is from the XOR operation of 0 + 1. A logical gate which matches this property is the XOR gate. This creates an output which returns 1 only when 0 and 1 are added. However there is still a necessary carry operation to be constructed. The only way to carry is to add 1 + 1. The proper gate for this operation is AND. Therefore, we need circuitry which has as XOR gate when 0 + 1, and an AND gate when 1 + 1.</p>
+   <img src="https://www.gsnetwork.com/wp-content/uploads/2023/01/half-adder-logic-gate-level-circuit-diagram.jpg" alt="Half Adder | Logic Gates Built with Transistors" width="550"/>
+   <p>We can observe that A and B are wired to the inputs of the two logic gates. When A or B is 1, then the sum of the two bits will be 1. However when both A and B are 1, then the sum returns 0 while the C Out returns 1. When both bits are 0, then both the sum from XOR and the C Out from AND return 0. The structure of the half adder is nice, but there is no way use a carry.</p>
+   <h2><center>The Full Adder</center></h2>
+   <p>While our half adder does a good job at quick addition with minimal circuitry, it cannot be cascaded or take carry operations. </p>
+   <img src="https://www.edn.com/wp-content/uploads/articles-quizzes-full-adder-1435128874.png" alt="Creating A Full Adder Circuit Using NAND Gates - EDN"/>
+   <p>The XOR of A and B in the left-most part of the circuit is the sum. The output of (A XOR B) is then XORed with Cin to create ((A XOR B) XOR Cin). This is the final output of sum (S). Logically, this says that two things must occur for the sum to be 1. Either A or B must be 1, or there must be a carry operation from a previous input. However these operations are mutually exclusive and both cannot be done in tandem. </p>
+   <p>Analyzing the bottom part of the circuitry, there are two AND gates and an OR gate. When both (A XOR B) and Cin return 1, then it is permitted to go through an OR gate which is guaranteed to return 1 at Cout. Additionally, if both A and B are 1, then Cout is guaranteed to be 1. The logical implication of this is that Cout can occur under two occassions. When both A and B are 1, or when either A or B are 1, and Cin is 1.</p>
+   <hr>
+   <p>Both of these conclusions make sense on a logical level. As A + B should always signal a carry operation when both values are 1. Additionally, when the XOR of A and B are 1, then combining with the 1 in Cin should carry over. As for sums, when A or B are 1 and there is no carry signal, then the sum should be 1. However if there is a carry operation, then carrying the 1 while leaving there is an existing 1 from A XOR B should leave a sum of 0.Therefore the carry operation and the Cin can be a logical 1, but must be mutually exclusive in order to return a sum of 1.</p>
+   <h2><center>Full Adders from Half Adders</center></h2>
+   <p>Although Half Adders cannot be cascaded, they can be manipulated in such a way that they construct adders, which can be manipulated. Taking the inputs of A and B creates both a Carry Output and a sum. The sum and Carry Input are added together in the second output to create the final sum of the two adders. Finally, if there is a carry output in both half adder 1 or half adder 2, then the carry output will be 1. However the events must mutually exclusive as per the fact that both carry outputs cannot coexist to the aforementioned.</p>
+   <img src="https://graphicmaths.com/img/computer-science/logic/adder/2-half-adders.png" alt="GraphicMaths - Creating an adder with logic gates" width="550"/>
+   <h2><center>Summary</center></h2>
+   <p>Due to the constructions of the Half Adder and the Full Adder, we can successfully create binary addition of literals. The full adder can be cascaded by means of connecting other full adders together. We can also create full adders from half adders. The operations done by half adders and full adders above are the building blocks to computer operations and ALU logic.</p>
+ </div>
+ <div class="links">
+   <center>
+   <h2><b><center>Links to Articles</center></b></h2>
+   <a href="ten_laws.html">The Ten Laws of Boolean Algebra</a><br>
+   <a href="soppos.html">SoP/PoS</a><br>
+   <a href="minterms_and_maxterms.html">Minterms and Maxterms</a><br>
+   <a href="demorgans_law.html">De Morgan's Law</a><br>
+   <a href="karnaugh1.html">Karnaugh Map (Part 1)</a><br>
+   <a href="pnao.html">PNAO</a><br>
+   <a href="srlatch_article.html"> SR Latch Article</a><br>
+   <a href="dlatch.html">D Latch Article</a><br>
+   <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+   <a href="tflipflop.html">T Flipflop Article</a><br>
+   </center>
+ </div>
+ <script src="script.js"></script>
+</body>
+</html>
+
+
+\
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Karnaugh Maps 2</title>
+ <meta name="viewport" content="width=device-width,initial-scale=1" >
+ <link href="style.css" rel="stylesheet">
+</head>
+<body>
+ <div class="white-space">
+   <h1><center>Karnaugh Maps (Part 2)</center></h1>
+   <p>In this article, we will be properly evaluating Karnuagh Maps and creating literal functions from them. All literal evaluations nust start from a function, be converted into minterm form, and be aligned with the corresponding minterm #.</p>
+   <p>With this in mind, evaluate the function:</p>
+  <table>
+     <tr>
+       <th>Literals</th>
+       <th>Minterm</th>
+       <th>Number</th>
+       <th>Evaluation</th>
+     </tr>
+     <tr>
+       <td>000</td>
+       <td>A'B'C'</td>
+       <td>0</td>
+       <td>1</td>
+     </tr>
+     <tr>
+       <td>001</td>
+       <td>A'B'C</td>
+       <td>1</td>
+       <td>0</td>
+     </tr>
+     <tr>
+       <td>010</td>
+       <td>A'BC'</td>
+       <td>2</td>
+       <td>0</td>
+     </tr>
+     <tr>
+       <td>011</td>
+       <td>A'BC</td>
+       <td>3</td>
+       <td>1</td>
+     </tr>
+     <tr>
+       <td>100</td>
+       <td>AB'C'</td>
+       <td>4</td>
+       <td>0</td>
+     </tr>
+     <tr>
+       <td>101</td>
+       <td>AB'C</td>
+       <td>5</td>
+       <td>1</td>
+     </tr>
+     <tr>
+       <td>110</td>
+       <td>ABC'</td>
+       <td>6</td>
+       <td>1</td>
+     </tr>
+     <tr>
+       <td>111</td>
+       <td>ABC</td>
+       <td>7</td>
+       <td>0</td>
+     </tr>
+   </table>
+   <h2><center>Analization</center></h2>
+   <p>We must note that there are three variables in all minterms, which means that we must have a 3 Variable K-Map. Another thing which must be remembered about the K-Map is the use of Grey Code instead of standard binary counting. For this, we use a grid in the form of a rectangle. The rectangle is formatted to specific position of minterms as seen below:</p>
+ <div class="grid-container">
+
+
+ <div class="labels-horizontal">
+   <span>00</span>
+   <span>01</span>
+   <span>11</span>
+   <span>10</span>
+ </div>
+
+
+ <div class="labels-vertical">
+   <span>0</span>
+   <span>1</span>
+ </div>
+
+
+ <div class="grid-item">m<sub>0</sub></div>
+ <div class="grid-item">m<sub>1</sub></div>
+ <div class="grid-item">m<sub>3</sub></div>
+ <div class="grid-item">m<sub>2</sub></div>
+
+
+ <div class="grid-item">m<sub>4</sub></div>
+ <div class="grid-item">m<sub>5</sub></div>
+ <div class="grid-item">m<sub>7</sub></div>
+ <div class="grid-item">m<sub>6</sub></div>
+</div>
+ <p>The minterm subscript below the grid value should be  matched with the minterm value. Each grid should be filled in with either a "1" or a "0". The corresponding value of the evaluation is matched to the grid input.</p>
+ <p>With this step being evaluated, the value returns:</p>
+
+
+   <div class="grid-container">
+
+
+ <div class="labels-horizontal">
+   <span>00</span>
+   <span>01</span>
+   <span>11</span>
+   <span>10</span>
+ </div>
+
+
+ <div class="labels-vertical">
+   <span>0</span>
+   <span>1</span>
+ </div>
+
+
+ <div class="grid-item">1</div>
+ <div class="grid-item">0</div>
+ <div class="grid-item">1</div>
+ <div class="grid-item">0</div>
+
+
+ <div class="grid-item">0</div>
+ <div class="grid-item">1</div>
+ <div class="grid-item">0</div>
+ <div class="grid-item">1</div>
+</div>
+
+
+   <p>Now that we have successfully evaluated the K-Map, we must talk about prime implicants. To solve this, we must circle all of the 1s on the K-Map, and evaluate the variables. There are a few rules about the circling that we can do on the K-Map.</p>
+   <ul>
+     <li>The terms circled must be adjacent to eachother</li>
+     <li>Exclusive one bit type may be circled on the K-Map (1s or 0s)</li>
+     <li>The number of terms circled must be to a power of 2^n</li>
+   </ul>
+   <p>From this data, we can determine that all four 1s must be circled. No group of ones are directly adjacent from eachother. To resolve this, we can circle all 1s individually as the number of terms circled is one. One is a power of 2 (2^0). Here is the K-Map after all of the 1s have been circled.</p>
+<div class="kmap-wrapper">
+ <div class="grid-container">
+
+
+   <div class="labels-horizontal">
+     <span>00</span>
+     <span>01</span>
+     <span>11</span>
+     <span>10</span>
+   </div>
+
+
+   <div class="labels-vertical">
+     <span>0</span>
+     <span>1</span>
+   </div>
+ <div class="grid-item one">1</div>
+<div class="grid-item">0</div>
+<div class="grid-item one">1</div>
+<div class="grid-item">0</div>
+
+
+<div class="grid-item">0</div>
+<div class="grid-item one">1</div>
+<div class="grid-item">0</div>
+<div class="grid-item one">1</div>
+ </div>
+
+
+ <div class="circle"></div>
+</div>
+<div class="oval"></div>
+<div class="oval2"></div>
+<p>The circled terms can be identified by their row and column. From the previous article, we discussed how the digits of the K-Map are just abstractions for variables. Therefore we can replace the variables with digits to make the future steps easier. The choice of digits is arbitrary, but I choose to notate the vertical bits under "A", and the horizontal bits under "BC". Additionally, we must take the minterms of each grid-input to fully represent all of the variable combinations.</p>
+<ul>
+ <li>Minterm 0's 1 has its value on column "0" and row "00"</li>
+ <li>Minterm 3's 1 has its value on column "0" and row "11"</li>
+ <li>Minterm 5's 1 has its value on column "1" and row "01"</li>
+ <li>Minterm 6's 1 has its value on column "1" and row "10"</li>
+</ul>
+<p>The notations are variable A for columns, and variables BC for rows. To properly construct the minterm values from this, we must combine both the positionings from the columns and rows. For example, Minterm 0's term will have columns "0" and rows "00" (represented by ABC) as A'B'C'. This creates our first constructed minterm A'B'C'. From here, we can create a table for all values circled.</p>
+   <table>
+     <tr>
+       <th>Literals</th>
+       <th>Minterm</th>
+       <th>Number</th>
+     </tr>
+     <tr>
+       <td>000</td>
+       <td>A'B'C'</td>
+       <td>0</td>
+     </tr>
+     <tr>
+       <td>011</td>
+       <td>A'BC</td>
+       <td>3</td>
+     </tr>
+     <tr>
+       <td>101</td>
+       <td>AB'C</td>
+       <td>5</td>
+     </tr>
+     <tr>
+       <td>110</td>
+       <td>ABC'</td>
+       <td>6</td>
+     </tr>
+   </table> 
+ <p>This new constructed list leaves only the values circled. Since there is only one term in each circle, we take the minterm for each value circled and put it into SoP (Sum of Product) form. This will leave us with our answer:</p>
+ <center><h3>F = A'B'C' + A'BC + AB'C + ABC'</h3></center>
+ <p>The expression below guarantees that for all the evaluations done in the function, the equation above is a valid result for all of them. We can check the validity of our claim by stating that each literal bit value is equal to the variable going down. For instance, Minterm 0 would have values A=0, B=0, C=0 since Mintern 0's literal is 000.</p>
+ <ul>
+   <li>0'0'0' + 0'00 + 00'0 + 000' = 1 (Minterm 0)</li>
+   <li>0'1'1' + 0'11 + 01'1 + 011' = 1 (Minterm 3)</li>
+   <li>1'0'1' + 1'01 + 10'1 + 101' = 1 (Minterm 5)</li>
+   <li>1'1'0' + 1'10 + 11'0 + 110' = 1 (Minterm 6)</li>
+ </ul>
+ <hr>
+ <p>We just evaluated our own K-Map, but what if there is more than one value circled. For instance, take a look at this example:</p>
+
+
+   <table>
+     <tr>
+       <th>Literals</th>
+       <th>Minterm</th>
+       <th>Number</th>
+       <th>Evaluation</th>
+     </tr>
+     <tr>
+       <td>000</td>
+       <td>A'B'C'</td>
+       <td>0</td>
+       <td>1</td>
+     </tr>
+     <tr>
+       <td>001</td>
+       <td>A'B'C</td>
+       <td>1</td>
+       <td>1</td>
+     </tr>
+     <tr>
+       <td>010</td>
+       <td>A'BC'</td>
+       <td>2</td>
+       <td>0</td>
+     </tr>
+     <tr>
+       <td>011</td>
+       <td>A'BC</td>
+       <td>3</td>
+       <td>1</td>
+     </tr>
+     <tr>
+       <td>100</td>
+       <td>AB'C'</td>
+       <td>4</td>
+       <td>0</td>
+     </tr>
+     <tr>
+       <td>101</td>
+       <td>AB'C</td>
+       <td>5</td>
+       <td>0</td>
+     </tr>
+     <tr>
+       <td>110</td>
+       <td>ABC'</td>
+       <td>6</td>
+       <td>0</td>
+     </tr>
+     <tr>
+       <td>111</td>
+       <td>ABC</td>
+       <td>7</td>
+       <td>1</td>
+     </tr>
+   </table>
+ <p>Also take a look at its corresponding Karnaugh Map positioning:</p>
+ <div class="grid-container">
+
+
+ <div class="labels-horizontal">
+   <span>B'C'</span>
+   <span>B'C</span>
+   <span>BC</span>
+   <span>BC'</span>
+ </div>
+
+
+ <div class="labels-vertical">
+   <span>A'</span>
+   <span>A</span>
+ </div>
+
+
+ <div class="grid-item">1</div>
+ <div class="grid-item">1</div>
+ <div class="grid-item">1</div>
+ <div class="grid-item">0</div>
+
+
+ <div class="grid-item">0</div>
+ <div class="grid-item">0</div>
+ <div class="grid-item">1</div>
+ <div class="grid-item">0</div>
+</div>
+<p>To properly evaluate this K-Map, we must look at the values that are not changing inside the circle. For example, take a look at each of the orange circle. You will notice that the values in grids change from B'C' on m<sub>0</sub> to B'C on m<sub>1</sub>. Therefore, C changed values and it may be removed from our minterm product. However, the values B' and A' do not, and may remain in the K-Map minterm evaluation.</p>
+<p>Therefore, the resulting minterms for our values are:</p>
+<ul>
+ <li>Orange Circle - A'B' since A' and B' are constant</li>
+ <li>Blue Circle - BC since B and C are constant</li>
+</ul>
+<p>Once we put everything into SoP form, it yields:</p>
+<center><h3>F = A'B' + BC</h3></center>
+<p>You may notice that the complexity of the expression greatly decreases when multiple values can be circled. This is because less minterms need to be evaluated, and less total circles need their own minterm in the SoP. Therefore, it is often better to circle as many terms as possible when dealing with Karnaugh Map evaluations.</p>
+<hr>
+<p>Congratulations! This was a long article to get through, you should have a more detailed understanding of K-Map construction and solving of functions. We learned that the K-Map bases itself from a function, and minterms must be placed in specific areas to create the proper chart. Once that is done, we must circle all of the values and take their minterms through an organized process of factoring out variables. Once we do this for every single one, it can be added in SoP form. This yields our function value.</p>
+<p>Join me in the next article as we now evaluate 4 Variable K-Maps.</p>
+ </div>
+ <div class="links">
+   <center>
+   <h2><b><center>Links to Articles</center></b></h2>
+   <a href="ten_laws.html">The Ten Laws of Boolean Algebra</a><br>
+   <a href="soppos.html">SoP/PoS</a><br>
+   <a href="minterms_and_maxterms.html">Minterms and Maxterms</a><br>
+   <a href="demorgans_law.html">De Morgan's Law</a><br>
+   <a href="karnaugh1.html">Karnaugh Map (Part 1)</a><br>
+   <a href="pnao.html">PNAO</a><br>
+   <a href="srlatch_article.html"> SR Latch Article</a><br>
+   <a href="dlatch.html">D Latch Article</a><br>
+   <a href="jkflipflop.html">JK Flip Flop Article</a><br>
+   <a href="tflipflop.html">T Flipflop Article</a><br>
+   </center>
+ </div>
+ <script src="script.js"></script>
+</body>
+</html>
+
+
+
