@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Gates</title>
+</head>
+<body>
+  <p>Logic gates are the building blocks of all electronics. We use these to perform all mathematical and logical operations. When using logic gates, there are seven major variants that come to play. These designs and constructions will be covered in more detail in this article. Without further to do, lets commence this article!</p>
+  <h2><center>Boolean Theory</center></h2>
+  <p>Boolean Theory is a sector of mathematics where two logical choices can exist. These choices are represented by 0 (False) and 1 (True).  This was initially a sector for representing logical choices such as “There is a dog and there is a cat” (D∧C). However boolean algebra started getting discussed more in detail due to the use of computers.</p>
+  <p>Computers can only understand basic electrical signals. Electric signals run off electricity, which by nature causes movement (electromagnetism), performs logic (logic gates), and lights (electrodynamics). Having enough of these electrical signals, we can construct any series of commands that we want. This current boolean signal follows the structure of “if a signal is sent, do that, otherwise do this”. This structure is useful, however we may want more dynamic logic such as “if two signals are sent do that, otherwise do this”. Logic gates give us a chance to use this more dynamic approach.</p>
+  <h2><center>Logic Gates</center></h2>
+  <p>Each logic gate must have its corresponding truth table. A truth table is a way of mapping inputs to their outputs. Truth tables are unmuttable and cannot be altered, therefore we cannot change any of the input-output</p>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdSG8vA7HHXXYlcLDDwXH4d-x5lHaz33yMsKLWvoNVJQ&s=10" alt="Boolean algebra diagram">
+  <p>This logic gate takes 2 inputs - while the section on the right-most side is the output. Below from the inputs is the logical counting of binary. This goes in the order of 00, 01, 10, 11. The variables A and B are the two inputs being entered into the logic gate, while the outputs are typically represented in the “X” or “Output” column. It goes that the first number corresponds to the first letter of the alphabet. For the binary string (literal) 10, A would correspond to the first value 1 while B would correspond to the second value 0. </p>
+  <p>Learning how logic gates work, I will brief you on the simplest logic gate that there is - the NOT gate. </p>
+  <img src="https://graphicmaths.com/img/computer-science/logic/logic-gates/not-gate.png" alt="GraphicMaths - Logic gates" width="800px"/>
+  <p>As there are two possible states in boolean algebra, the NOT gate simply switches the state to the opposite. For this example, the 1 swaps to 0. This also corresponds with the truth table, which states that for each input, an opposite output is returned.</p>
+  <h2><center>AND & OR Gates</center></h2>
+  <p>Finally, we will get into the bread and butter of logic gates - the AND and OR operation. </p>
+  <ul>
+    <li>The AND logic gate <b>outputs a 1 only when A and B are 1</b>. Therefore both A AND B have to be 1. If A or B are something different from 1, then the output will return a 0.</li>
+    <li>The OR logic gate <b>outputs a 1 when either A or B are 1</b>. Therefore either A OR B have to be 1. If neither A nor B are 1, then the output will return a 0.</li>
+    </ul>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1WXH2PaH4dR2QccrXhgYvu1O_k_ZIefKyOSv9AoZ3kQ&amp;s=10" alt="From Logic Gates to Registers: Exploring the 74HC173" width="550px"/>
+    <center><h2>XOR Gates</h2></center>
+    <p>The XOR gate is the next logical step of the OR gate. What if we want a value to return 1 when two things are mutually exclusive? Then the XOR gate is our best friend. The X in XOR stands for exclusive, and indicates that there will only be exclusively OR operations. This means that A=B=1, and A=B=0 are not permitted. This comes in handy when dealing with events that should not happen both at once. </p>
+    <img src="https://graphicmaths.com/img/computer-science/logic/logic-gates/or-gate.png" alt="GraphicMaths - Logic gates" width="550px"/>
+    <center><h2>Complementary Gates</h2></center>
+    <p>Before further gates, I must introduce you to the concept of complementary gates. These are dynamic duos, and work in conjunction. Both of them have completely opposite logic which govern their operations.</p>
+    <p>For example, take the <b>NAND</b> gate which is the complementary gate of the AND gate. While the AND gate returns 0 unless both inputs are 1, the NAND gate returns 1 unless both inputs are 1. The only difference between the two is the returning of the output. For this reason, when we examine the truth table, then both the outputs should be opposite of each other.</p>
+    <img src="https://graphicmaths.com/img/computer-science/logic/logic-gates/nand-gate.png" alt="GraphicMaths - Logic gates" width="700px"/>
+    <h4 class="close-up">Representation of the NAND Gate</h4>
+    <p>Notice that the NAND gate is completely opposite of the AND gate’s truth table. Since the AND and NAND gate follow completely opposite sets of rules, they will never have the same output from two inputs. The “circle” on the left of the gate indicates that it is the complementary gate. The NAND can be represented as the AND gate with a circle on the left.</p>
+    <center><h2>NAND Gates</h2></center>
+    <p>The purpose of the NAND is to return true unless both A and B are 1. This is the direct opposite of the AND gate which will only return true when both outputs of 1. This gives us our first complementary gate pair. The NAND can be thought of as a logic gate we use when two events should <b>never</b> happen at the same time.</p>
+    <center><h2>NOR Gates</h2></center>
+    <p>The NOR Gate is the complementary gate to the OR gate. Unlike the OR gate which can be thought of as a logical 1 detector; the NOR gate detects 0s. If both inputs are 0 on the NOR gate, then the NOR gate returns 1. However if there are any other inputs, then the NOR gate returns 0. This can be proven by the truth table below.</p>
+    <img src="https://graphicmaths.com/img/computer-science/logic/logic-gates/nor-gate.png" alt="GraphicMaths - Logic gates" width="700px"/>
+    <center><h2>XNOR Gates</h2></center>
+    <p>Finally, we have reached our last complementary gate. This is complementary to the XOR gate. While the XOR gate evaluates whether both inputs are a different value and returns 1 if true; The XNOR gate evaluates if both inputs are the same. This logic gate would be used if we either want two inputs to happen or not happen.</p>
+    <img src="https://graphicmaths.com/img/computer-science/logic/logic-gates/xnor-gate.png" alt="GraphicMaths - Logic gates" width="700px"/>
+    <center><h2>Review of All Gates</h2></center>
+    <ul>
+      <li>NOT Gate returns the opposite of the input entered</li>
+      <li>AND Gate returns 1 only when A and B are 1</li>
+      <li>OR Gate returns 1 when either A or B (or both) are 1</li>
+      <li>XOR Gate returns 1 when A and B are different values</li>
+      <li>NAND Gate returns 1 when both A and B are not 1</li>
+      <li>NOR Gate returns 1 when neither A nor B are 1</li>
+      <li>XNOR Gate returns 1 when A and B are the same value</li>
+    </ul>
+</body>
+</html>
